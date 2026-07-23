@@ -11,6 +11,7 @@ const year = 2026 // build-time constant; bump on redeploy (Date.now is avoided)
 const explore = computed(() => [
   { to: localePath('/services'), label: t('nav.services') },
   { to: localePath('/shop'), label: t('nav.shop') },
+  { to: localePath('/booking'), label: t('nav.booking') },
   { to: localePath('/about'), label: t('nav.about') },
   { to: localePath('/contact'), label: t('nav.contact') },
 ])

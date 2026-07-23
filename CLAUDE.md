@@ -72,7 +72,7 @@ app/
     home/                   # Hero, Marquee, Categories, Popular, Services, Process, Gallery, Visit, CTA
     ui/                     # Button, Icon (inline-SVG set)
     product/ service/ cart/ section/ legal/   # feature components
-  pages/                    # index, services, shop/[index|slug], checkout, about, contact, legal/*
+  pages/                    # index, services, shop/[index|slug], booking, checkout, about, contact, legal/*
   assets/scss/
     abstracts/              # tokens/functions/breakpoints/mixins (NO css output; auto-injected)
     base/                   # reset, root(CSS vars), typography, layout, utilities
@@ -101,6 +101,9 @@ do not need to (injection covers them).
 - **Quote items:** products with `priceIDR: null` are added as `isQuote` lines
   (excluded from subtotal, flagged in the WA message). This keeps us honest when
   a price isn't verified.
+- **Service booking:** `/booking` builds a WhatsApp booking message
+  (`buildBookingMessage`) with service/date/time. Service cards link to
+  `/booking?service=<slug>` to pre-select (applied client-side in `onMounted`).
 
 ## Adding things
 

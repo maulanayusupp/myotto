@@ -77,6 +77,40 @@ export function buildCheckoutMessage(
   return L.join('\n')
 }
 
+export interface BookingInfo {
+  name: string
+  phone: string
+  vehicle: string
+  service: string // already-localized service name
+  date: string
+  time: string
+  notes?: string
+  locale: LocaleCode
+}
+
+/** Build a service-booking message for WhatsApp. */
+export function buildBookingMessage(info: BookingInfo): string {
+  const en = info.locale === 'en'
+  const L: string[] = []
+  L.push(en ? `*Service booking — ${SITE.name}*` : `*Booking servis — ${SITE.name}*`)
+  L.push('')
+  L.push(`${en ? 'Service' : 'Layanan'}: ${info.service}`)
+  if (info.date) L.push(`${en ? 'Date' : 'Tanggal'}: ${info.date}`)
+  if (info.time) L.push(`${en ? 'Time' : 'Jam'}: ${info.time}`)
+  L.push('')
+  L.push(`${en ? 'Name' : 'Nama'}: ${info.name}`)
+  if (info.phone) L.push(`${en ? 'Phone' : 'Telepon'}: ${info.phone}`)
+  if (info.vehicle) L.push(`${en ? 'Motorcycle' : 'Motor'}: ${info.vehicle}`)
+  if (info.notes) L.push(`${en ? 'Notes' : 'Catatan'}: ${info.notes}`)
+  L.push('')
+  L.push(
+    en
+      ? 'Please confirm the slot availability. Thanks! 🏁'
+      : 'Mohon konfirmasi ketersediaan slot. Terima kasih! 🏁',
+  )
+  return L.join('\n')
+}
+
 /** Default enquiry message, localized by the caller. */
 export function enquiryMessage(subject?: string): Record<LocaleCode, string> {
   return {

@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import Icon from '~/components/ui/Icon.vue'
 import { pickLocale } from '~/utils/i18n-helpers'
 import { formatIDR } from '~/utils/format'
-import { buildWhatsAppUrl, enquiryMessage } from '~/utils/whatsapp'
 import type { Service, LocaleCode } from '~/types/catalog'
 
 const props = withDefaults(
@@ -12,6 +11,7 @@ const props = withDefaults(
 )
 
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 const lc = computed(() => locale.value as LocaleCode)
 
 const name = computed(() => pickLocale(props.service.name, lc.value))
@@ -21,7 +21,10 @@ const priceLabel = computed(() =>
     ? t('services.estimateNote')
     : `${t('common.from')} ${formatIDR(props.service.priceIDR)}`,
 )
-const bookUrl = computed(() => buildWhatsAppUrl(enquiryMessage(name.value)[lc.value]))
+// Book links to the booking form, pre-selecting this service via query.
+const bookTo = computed(() =>
+  localePath({ path: '/booking', query: { service: props.service.slug } }),
+)
 </script>
 
 <template>
@@ -42,9 +45,9 @@ const bookUrl = computed(() => buildWhatsAppUrl(enquiryMessage(name.value)[lc.va
       </li>
     </ul>
 
-    <a v-if="!compact" :href="bookUrl" class="svc__cta" target="_blank" rel="noopener noreferrer">
-      {{ t('services.bookCta') }} <Icon name="whatsapp" :size="16" />
-    </a>
+    <NuxtLink v-if="!compact" :to="bookTo" class="svc__cta">
+      {{ t('services.bookCta') }} <Icon name="arrow" :size="16" />
+    </NuxtLink>
   </article>
 </template>
 
