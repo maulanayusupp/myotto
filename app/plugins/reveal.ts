@@ -1,14 +1,16 @@
 /**
  * Scroll-reveal: elements with `data-reveal` fade/slide in when they enter the
- * viewport. The hidden state is gated by the `.reveal-ready` class (set by an
- * inline head script) and CSS in base/_layout.scss.
+ * viewport. The hidden state is gated by `.reveal-ready` (set by an inline head
+ * script) + CSS in base/_layout.scss, so content is always visible without JS.
  *
- * We observe on BOTH `app:mounted` (fires on the initial client mount / hard
- * load) and `page:finish` (fires on client-side navigations). Hooking only
- * page:finish previously left directly-loaded pages blank because that hook
- * doesn't fire on the first render. SSR-safe (guards window).
+ * Reliability: instead of depending on page hooks + rAF timing (which race with
+ * the `out-in` page transition on client-side navigation and left new pages
+ * blank), we watch the DOM with a MutationObserver and register every
+ * `[data-reveal]` element with an IntersectionObserver the moment it is
+ * inserted. This covers initial load, client navigation and async content alike.
+ * SSR-safe (guards window).
  */
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
   if (import.meta.server) return
 
   const root = document.documentElement
@@ -19,27 +21,40 @@ export default defineNuxtPlugin((nuxtApp) => {
     return
   }
 
-  const observer = new IntersectionObserver(
+  root.classList.add('reveal-ready')
+
+  const io = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible')
-          observer.unobserve(entry.target)
+          io.unobserve(entry.target)
         }
       }
     },
-    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+    { threshold: 0.06, rootMargin: '0px 0px -5% 0px' },
   )
 
-  const observe = () => {
-    root.classList.add('reveal-ready')
+  const scan = () =>
     document
       .querySelectorAll('[data-reveal]:not(.is-visible)')
-      .forEach((el) => observer.observe(el))
+      .forEach((el) => io.observe(el))
+
+  // Debounce re-scans to one per frame (the DOM mutates in bursts).
+  let scheduled = false
+  const schedule = () => {
+    if (scheduled) return
+    scheduled = true
+    requestAnimationFrame(() => {
+      scheduled = false
+      scan()
+    })
   }
 
-  const kick = () => requestAnimationFrame(observe)
+  // React to any nodes added during hydration, navigation or async rendering.
+  const mo = new MutationObserver(schedule)
+  mo.observe(document.body, { childList: true, subtree: true })
 
-  nuxtApp.hook('app:mounted', kick)
-  nuxtApp.hook('page:finish', kick)
+  // Register whatever is already present on first mount.
+  schedule()
 })
