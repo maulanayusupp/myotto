@@ -1,9 +1,23 @@
 /**
- * Scroll-reveal directive: elements with `data-reveal` fade/slide in when they
- * enter the viewport. CSS lives in base/_layout.scss. SSR-safe (guards window).
+ * Scroll-reveal: elements with `data-reveal` fade/slide in when they enter the
+ * viewport. The hidden state is gated by the `.reveal-ready` class (set by an
+ * inline head script) and CSS in base/_layout.scss.
+ *
+ * We observe on BOTH `app:mounted` (fires on the initial client mount / hard
+ * load) and `page:finish` (fires on client-side navigations). Hooking only
+ * page:finish previously left directly-loaded pages blank because that hook
+ * doesn't fire on the first render. SSR-safe (guards window).
  */
 export default defineNuxtPlugin((nuxtApp) => {
   if (import.meta.server) return
+
+  const root = document.documentElement
+
+  // No IntersectionObserver → drop the gate so everything is simply visible.
+  if (!('IntersectionObserver' in window)) {
+    root.classList.remove('reveal-ready')
+    return
+  }
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -17,14 +31,15 @@ export default defineNuxtPlugin((nuxtApp) => {
     { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
   )
 
-  const observe = (root: ParentNode | Document = document) => {
-    root.querySelectorAll('[data-reveal]:not(.is-visible)').forEach((el) => {
-      observer.observe(el)
-    })
+  const observe = () => {
+    root.classList.add('reveal-ready')
+    document
+      .querySelectorAll('[data-reveal]:not(.is-visible)')
+      .forEach((el) => observer.observe(el))
   }
 
-  nuxtApp.hook('page:finish', () => {
-    // Defer to next frame so freshly-rendered nodes exist.
-    requestAnimationFrame(() => observe())
-  })
+  const kick = () => requestAnimationFrame(observe)
+
+  nuxtApp.hook('app:mounted', kick)
+  nuxtApp.hook('page:finish', kick)
 })

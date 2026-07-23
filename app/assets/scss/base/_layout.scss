@@ -22,16 +22,19 @@
 .page-leave-to { opacity: 0; transform: translateY(-6px); }
 
 // Scroll-reveal (driven by plugins/reveal.ts via IntersectionObserver).
-[data-reveal] {
+// The hidden state is gated behind `.reveal-ready` (added on <html> by an inline
+// head script) so that WITHOUT JS the content is always visible — no blank pages
+// for crawlers or if the observer never runs.
+.reveal-ready [data-reveal] {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity $dur-slow $ease-out, transform $dur-slow $ease-out;
   will-change: opacity, transform;
 }
-[data-reveal].is-visible {
+.reveal-ready [data-reveal].is-visible {
   opacity: 1;
   transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }

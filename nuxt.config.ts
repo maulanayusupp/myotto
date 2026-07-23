@@ -45,6 +45,15 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'author', content: SITE.legalName },
       ],
+      script: [
+        {
+          // Enable the scroll-reveal hidden state before first paint (avoids a
+          // content flash). If JS is disabled the class is never added, so all
+          // [data-reveal] content stays fully visible — safe for crawlers.
+          innerHTML: "document.documentElement.classList.add('reveal-ready')",
+          tagPosition: 'head',
+        },
+      ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
