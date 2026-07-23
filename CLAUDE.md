@@ -111,6 +111,9 @@ do not need to (injection covers them).
   category slug, `source`, and a real `priceIDR` ONLY if evidenced (else `null`).
   Add a placeholder image to `public/products/` (or a real photo).
 - **New service:** `app/data/services.ts`.
+- **New review:** `app/data/reviews.ts` — ONLY verified quotes (real author +
+  source). Empty by default; the home Reviews section shows the verified Google
+  aggregate rating regardless, and renders quote cards when the array is filled.
 - **New page:** create under `app/pages/`, call `useSeoMetaTags`, add nav links
   in `components/layout/Header.vue` + `Footer.vue`, and add any new strings to
   BOTH locales.

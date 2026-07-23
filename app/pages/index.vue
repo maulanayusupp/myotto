@@ -5,6 +5,7 @@ import Categories from '~/components/home/Categories.vue'
 import Popular from '~/components/home/Popular.vue'
 import Services from '~/components/home/Services.vue'
 import Process from '~/components/home/Process.vue'
+import Reviews from '~/components/home/Reviews.vue'
 import Gallery from '~/components/home/Gallery.vue'
 import Visit from '~/components/home/Visit.vue'
 import CTA from '~/components/home/CTA.vue'
@@ -27,6 +28,7 @@ useLocalBusinessJsonLd()
     <Popular />
     <Services />
     <Process />
+    <Reviews />
     <Gallery />
     <Visit />
     <CTA />

@@ -191,6 +191,16 @@ export default {
     subtitle: 'Cuplikan pekerjaan & produk dari feed MYOTTO.',
     note: 'Foto contoh bertema; foto asli menyusul.',
   },
+  reviews: {
+    kicker: 'Kata Rider',
+    title: 'Dipercaya Ratusan Rider',
+    subtitle: 'Rating asli dari Google Business Profile MYOTTO — tanpa rekayasa.',
+    outOf: 'dari 5',
+    verified: 'Rating terverifikasi Google',
+    ratingSummary: 'Berdasarkan {count} ulasan di Google',
+    readOnGoogle: 'Lihat ulasan di Google',
+    empty: 'Kutipan ulasan pilihan akan tampil di sini.',
+  },
   cta: {
     title: 'Siap Bikin Motormu Beda?',
     subtitle: 'Chat MYOTTO sekarang — konsultasi variasi, servis, atau part gratis.',

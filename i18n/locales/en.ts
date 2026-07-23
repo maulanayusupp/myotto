@@ -189,6 +189,16 @@ export default {
     subtitle: 'A glimpse of jobs & products from the MYOTTO feed.',
     note: 'Themed sample images; real photos coming soon.',
   },
+  reviews: {
+    kicker: 'Rider Words',
+    title: 'Trusted by Hundreds of Riders',
+    subtitle: 'A real rating from MYOTTO’s Google Business Profile — not fabricated.',
+    outOf: 'out of 5',
+    verified: 'Google-verified rating',
+    ratingSummary: 'Based on {count} Google reviews',
+    readOnGoogle: 'Read reviews on Google',
+    empty: 'Selected review quotes will appear here.',
+  },
   cta: {
     title: 'Ready to Make Your Ride Stand Out?',
     subtitle: 'Message MYOTTO now — free consult on styling, service or parts.',

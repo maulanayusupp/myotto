@@ -49,4 +49,15 @@ export interface Service {
   source: EvidenceSource
 }
 
+/** A customer review/testimonial. Only add VERIFIED reviews (with a real
+ *  source); never fabricate. `text` is stored as originally written. */
+export interface Review {
+  author: string
+  rating: number // 1..5
+  text: string
+  /** Human-readable date as published, e.g. "Jun 2026". Optional. */
+  date?: string
+  source: EvidenceSource
+}
+
 export type { LocaleCode }

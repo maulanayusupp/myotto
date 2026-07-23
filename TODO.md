@@ -38,7 +38,9 @@ Feature backlog & next steps. Keep updated as work progresses (project rule #12)
 
 - [x] Booking flow for services (date/time slot) via `/booking` → WhatsApp;
       service cards pre-select via `?service=<slug>`.
-- [ ] Reviews/testimonials section (pull verified Google reviews).
+- [x] Reviews section — verified Google rating showcase (4.7★ / 111) with a
+      "read on Google" CTA. Individual quotes are seeded empty in
+      `app/data/reviews.ts` (evidence rule); add verified ones and cards render.
 - [x] `@nuxtjs/sitemap` (i18n sitemap index + hreflang + image entries) &
       breadcrumb JSON-LD on shop/product/services/about/contact.
 - [ ] Blog / tips section ("Boy's Will Be Boys" content) for SEO.

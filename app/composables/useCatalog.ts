@@ -2,6 +2,7 @@ import { computed } from 'vue'
 import { products } from '~/data/products'
 import { categories } from '~/data/categories'
 import { services } from '~/data/services'
+import { reviews } from '~/data/reviews'
 import type { Product } from '~/types/catalog'
 
 /**
@@ -12,6 +13,7 @@ export function useCatalog() {
   const allProducts = computed(() => products)
   const allCategories = computed(() => categories)
   const allServices = computed(() => services)
+  const allReviews = computed(() => reviews)
 
   const popularProducts = computed(() => products.filter((p) => p.popular))
 
@@ -33,6 +35,7 @@ export function useCatalog() {
     allProducts,
     allCategories,
     allServices,
+    allReviews,
     popularProducts,
     byCategory,
     productBySlug,
