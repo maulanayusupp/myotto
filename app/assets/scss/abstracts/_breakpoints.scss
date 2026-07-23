@@ -1,0 +1,32 @@
+// Breakpoint tokens + a mobile-first `up()` mixin.
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+@mixin up($bp) {
+  @if $bp == sm {
+    @media (min-width: $bp-sm) { @content; }
+  } @else if $bp == md {
+    @media (min-width: $bp-md) { @content; }
+  } @else if $bp == lg {
+    @media (min-width: $bp-lg) { @content; }
+  } @else if $bp == xl {
+    @media (min-width: $bp-xl) { @content; }
+  } @else {
+    @media (min-width: $bp) { @content; }
+  }
+}
+
+// Max-width (down) query for the rare cases that need it.
+@mixin down($bp) {
+  @if $bp == sm {
+    @media (max-width: ($bp-sm - 1px)) { @content; }
+  } @else if $bp == md {
+    @media (max-width: ($bp-md - 1px)) { @content; }
+  } @else if $bp == lg {
+    @media (max-width: ($bp-lg - 1px)) { @content; }
+  } @else {
+    @media (max-width: ($bp - 1px)) { @content; }
+  }
+}

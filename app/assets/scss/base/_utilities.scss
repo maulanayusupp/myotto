@@ -1,0 +1,32 @@
+// Small, composable utilities (kept minimal — most styling lives in components).
+.sr-only { @include visually-hidden; }
+
+.kicker {
+  @include spec-label;
+  color: var(--c-yellow);
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+
+  &::before {
+    content: '';
+    width: 26px;
+    height: 2px;
+    background: var(--c-yellow);
+  }
+}
+
+.text-red { color: var(--c-red-bright); }
+.text-yellow { color: var(--c-yellow); }
+.text-muted { color: var(--c-text-muted); }
+.mono { font-family: $font-mono; }
+
+// A thin checkered ribbon used as a section divider / brand motif.
+.checker-strip {
+  height: 10px;
+  width: 100%;
+  @include checker($yellow-400, #000, 10px);
+  opacity: 0.9;
+}
+
+.no-scroll { overflow: hidden; }

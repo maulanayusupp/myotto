@@ -1,0 +1,68 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+
+// Centered page container with responsive gutters.
+@mixin container($max: $container-max) {
+  width: 100%;
+  max-width: $max;
+  margin-inline: auto;
+  padding-inline: $space-4;
+  @include up(md) { padding-inline: $space-6; }
+}
+
+// Vertical rhythm for major page sections.
+@mixin section-padding {
+  padding-block: $space-10;
+  @include up(md) { padding-block: $space-12; }
+}
+
+// Uppercase condensed display heading (motorsport signage feel).
+@mixin display($size: 2.5rem, $weight: $fw-bold) {
+  font-family: $font-display;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+// Small mono "spec label" — used for kickers, tags, telemetry-style captions.
+@mixin spec-label {
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+// Visually hidden but accessible to screen readers.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Keyboard focus ring (consistent across interactive elements).
+@mixin focus-ring($color: $yellow-400) {
+  outline: 2px solid $color;
+  outline-offset: 2px;
+}
+
+// Checkered-flag background as a repeating conic gradient. Used sparingly as a
+// brand motif (dividers, accents). $size controls the check square size.
+@mixin checker($c1: $white, $c2: $black, $size: 16px) {
+  background-image:
+    conic-gradient($c1 90deg, $c2 90deg 180deg, $c1 180deg 270deg, $c2 270deg);
+  background-size: #{$size} #{$size};
+}
+
+// Diagonal "speed" clip for aggressive angled edges.
+@mixin skew-edge {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 1.5rem));
+}

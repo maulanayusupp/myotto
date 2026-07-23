@@ -1,0 +1,35 @@
+// Shared structural helpers.
+.container {
+  @include container;
+}
+
+.container--narrow {
+  @include container($container-narrow);
+}
+
+.section {
+  @include section-padding;
+}
+
+// Page transition (mode: out-in) — quick, techy fade+lift.
+.page-enter-active,
+.page-leave-active {
+  transition: opacity $dur-base $ease-out, transform $dur-base $ease-out;
+}
+.page-enter-from { opacity: 0; transform: translateY(10px); }
+.page-leave-to { opacity: 0; transform: translateY(-6px); }
+
+// Scroll-reveal (driven by plugins/reveal.ts via IntersectionObserver).
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity $dur-slow $ease-out, transform $dur-slow $ease-out;
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}

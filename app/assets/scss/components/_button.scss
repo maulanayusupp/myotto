@@ -1,0 +1,63 @@
+// Button system. Component markup lives in components/ui/Button.vue; visual
+// rules are centralized here so every button variant is consistent.
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-text-strong);
+  --btn-border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: 0.8rem 1.5rem;
+  font-family: $font-display;
+  font-weight: $fw-semibold;
+  font-size: $fs-base;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border: 1.5px solid var(--btn-border);
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: transform $dur-fast $ease-out, background $dur-fast $ease-soft,
+    color $dur-fast $ease-soft, border-color $dur-fast $ease-soft,
+    box-shadow $dur-base $ease-out;
+  white-space: nowrap;
+
+  &:hover { transform: translateY(-2px); }
+  &:active { transform: translateY(0); }
+  &:focus-visible { @include focus-ring; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  &__icon { display: inline-flex; }
+}
+
+.btn--primary {
+  --btn-bg: var(--c-yellow);
+  --btn-fg: #0a0a0b;
+  &:hover { box-shadow: $shadow-yellow; }
+}
+
+.btn--red {
+  --btn-bg: var(--c-red);
+  --btn-fg: #fff;
+  &:hover { box-shadow: $shadow-red; }
+}
+
+.btn--ghost {
+  --btn-border: var(--c-border-strong);
+  --btn-fg: var(--c-text-strong);
+  &:hover { --btn-border: var(--c-yellow); --btn-fg: var(--c-yellow); }
+}
+
+.btn--outline-yellow {
+  --btn-border: var(--c-yellow);
+  --btn-fg: var(--c-yellow);
+  &:hover { --btn-bg: var(--c-yellow); --btn-fg: #0a0a0b; }
+}
+
+.btn--sm { padding: 0.55rem 1rem; font-size: $fs-sm; }
+.btn--lg { padding: 1rem 2rem; font-size: $fs-lg; }
+.btn--block { width: 100%; }

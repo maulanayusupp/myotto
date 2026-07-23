@@ -1,0 +1,42 @@
+// CSS custom properties exposed at :root. These mirror the SCSS tokens in
+// abstracts/_variables.scss and are what components should reference at runtime
+// (SCSS vars are compile-time; CSS vars allow theming & runtime use).
+:root {
+  // Brand
+  --c-yellow: #{$yellow-400};
+  --c-yellow-bright: #{$yellow-300};
+  --c-yellow-deep: #{$yellow-600};
+  --c-red: #{$red-500};
+  --c-red-bright: #{$red-400};
+
+  // Surfaces / ink
+  --c-bg: #{$black};
+  --c-surface: #{$ink-900};
+  --c-surface-2: #{$ink-800};
+  --c-border: #{$ink-700};
+  --c-border-strong: #{$ink-600};
+  --c-white: #{$white};
+
+  // Text
+  --c-text: #{$ink-100};
+  --c-text-strong: #{$white};
+  --c-text-muted: #{$ink-300};
+  --c-text-faint: #{$ink-400};
+
+  // Feedback
+  --c-success: #{$success};
+  --c-error: #{$error};
+
+  // Layout
+  --container-max: #{$container-max};
+  --header-height: #{$header-height};
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+
+  // Motion
+  --ease-out: #{$ease-out};
+  --dur-base: #{$dur-base};
+
+  color-scheme: dark;
+}

@@ -1,0 +1,8 @@
+// Barrel for design tokens & helpers.
+// Injected into every component's SCSS via nuxt.config `additionalData`, so
+// variables, functions, mixins and breakpoints are available everywhere without
+// re-importing. Only @forward here (no CSS output) to keep the injection free.
+@forward 'variables';
+@forward 'functions';
+@forward 'breakpoints';
+@forward 'mixins';
