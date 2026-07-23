@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 // CSS custom properties exposed at :root. These mirror the SCSS tokens in
 // abstracts/_variables.scss and are what components should reference at runtime
 // (SCSS vars are compile-time; CSS vars allow theming & runtime use).

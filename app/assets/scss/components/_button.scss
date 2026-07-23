@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 // Button system. Component markup lives in components/ui/Button.vue; visual
 // rules are centralized here so every button variant is consistent.
 .btn {

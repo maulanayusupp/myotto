@@ -1,0 +1,190 @@
+import type { Product } from '~/types/catalog'
+
+/**
+ * Product catalog.
+ *
+ * EVIDENCE RULE — brands/products below are all visible in MYOTTO's own posts,
+ * Instagram Story highlights and Shopee store. Prices are set ONLY where we have
+ * direct evidence; every other item uses `priceIDR: null` ("price on request")
+ * and is quoted via WhatsApp. We never invent a number.
+ *
+ * Verified price(s):
+ *  - "Scooter Power LE 5w40 1 Liter" = Rp180.000 (Shopee: shopee.co.id/myotto).
+ *
+ * Product photography: placeholders in /public/products/*.svg match MYOTTO's
+ * signature red studio backdrop. Replace with real photos before launch (see
+ * TODO.md → "Assets").
+ */
+export const products: Product[] = [
+  {
+    slug: 'myotto-scooter-power-le-5w40',
+    category: 'oli',
+    brand: 'MYOTTO',
+    name: { id: 'Scooter Power LE 5W-40 (1 L)', en: 'Scooter Power LE 5W-40 (1 L)' },
+    desc: {
+      id: 'Oli mesin matic full-synthetic house-brand MYOTTO. Halus, tarikan enteng, tahan panas.',
+      en: 'MYOTTO house-brand full-synthetic scooter engine oil. Smooth, responsive, heat-resistant.',
+    },
+    priceIDR: 180000,
+    image: '/products/oli-scooter-power-le.svg',
+    tags: ['Matic', 'Full-synthetic'],
+    popular: true,
+    source: 'shopee',
+  },
+  {
+    slug: 'motul-scooter-gear-plus-80w90',
+    category: 'oli',
+    brand: 'Motul',
+    name: { id: 'Scooter Gear Plus 80W-90', en: 'Scooter Gear Plus 80W-90' },
+    desc: {
+      id: 'Oli gardan/transmisi matic. Lindungi gigi rasio dari gesekan.',
+      en: 'Scooter final-drive gear oil. Protects the reduction gears from wear.',
+    },
+    priceIDR: null,
+    image: '/products/oli-motul-gear.svg',
+    tags: ['Gardan', 'Matic'],
+    source: 'instagram',
+  },
+  {
+    slug: 'maxxis-victra-st-110-70-12',
+    category: 'ban',
+    brand: 'Maxxis',
+    name: { id: 'Victra ST 110/70-12', en: 'Victra ST 110/70-12' },
+    desc: {
+      id: 'Ban tubeless kompon lembut, grip mantap buat harian matic.',
+      en: 'Soft-compound tubeless tire with confident grip for daily scooters.',
+    },
+    priceIDR: null,
+    image: '/products/ban-maxxis-victra.svg',
+    tags: ['Tubeless', '12 inch'],
+    popular: true,
+    source: 'instagram',
+  },
+  {
+    slug: 'pirelli-diablo-rosso-110-70-13',
+    category: 'ban',
+    brand: 'Pirelli',
+    name: { id: 'Diablo Rosso 110/70-13', en: 'Diablo Rosso 110/70-13' },
+    desc: {
+      id: 'Ban sport premium, grip basah/kering yang percaya diri.',
+      en: 'Premium sport tire with confident wet & dry grip.',
+    },
+    priceIDR: null,
+    image: '/products/ban-pirelli-diablo.svg',
+    tags: ['Sport', '13 inch'],
+    source: 'instagram',
+  },
+  {
+    slug: 'kyb-front-fork',
+    category: 'kaki-kaki',
+    brand: 'KYB',
+    name: { id: 'Front Fork Set', en: 'Front Fork Set' },
+    desc: {
+      id: 'Shock depan KYB — redaman presisi, handling lebih pede.',
+      en: 'KYB front forks — precise damping, more confident handling.',
+    },
+    priceIDR: null,
+    image: '/products/kaki-kyb-fork.svg',
+    tags: ['Shock depan'],
+    popular: true,
+    source: 'instagram',
+  },
+  {
+    slug: 'proper-racing-coil-spring',
+    category: 'performa',
+    brand: 'Proper Racing Line',
+    name: { id: 'Per CVT Racing', en: 'Racing CVT Spring' },
+    desc: {
+      id: 'Per CVT untuk akselerasi lebih responsif di putaran bawah.',
+      en: 'CVT spring for snappier low-end acceleration.',
+    },
+    priceIDR: null,
+    image: '/products/performa-proper-spring.svg',
+    tags: ['CVT', 'Bore up'],
+    source: 'instagram',
+  },
+  {
+    slug: 'proper-racing-fan-cover',
+    category: 'performa',
+    brand: 'Proper Racing Line',
+    name: { id: 'Racing Fan / Cover CVT', en: 'Racing CVT Fan / Cover' },
+    desc: {
+      id: 'Kipas & cover CVT racing — pendinginan dan tampilan mesin.',
+      en: 'Racing CVT fan & cover — cooling plus engine-bay looks.',
+    },
+    priceIDR: null,
+    image: '/products/performa-proper-fan.svg',
+    tags: ['CVT'],
+    source: 'instagram',
+  },
+  {
+    slug: 'proper-racing-muffler',
+    category: 'performa',
+    brand: 'Proper Racing Line',
+    name: { id: 'Knalpot Racing', en: 'Racing Muffler' },
+    desc: {
+      id: 'Knalpot aftermarket — suara berkarakter, aliran gas lebih lega.',
+      en: 'Aftermarket muffler — characterful note, freer exhaust flow.',
+    },
+    priceIDR: null,
+    image: '/products/performa-proper-muffler.svg',
+    tags: ['Knalpot'],
+    source: 'instagram',
+  },
+  {
+    slug: 'myotto-brake-hose',
+    category: 'pengereman',
+    brand: 'MYOTTO',
+    name: { id: 'High Performance Brake Hose', en: 'High Performance Brake Hose' },
+    desc: {
+      id: 'Selang rem house-brand MYOTTO — respons rem lebih pakem & konsisten.',
+      en: 'MYOTTO house-brand brake hose — sharper, more consistent braking.',
+    },
+    priceIDR: null,
+    image: '/products/rem-myotto-hose.svg',
+    tags: ['Selang rem'],
+    source: 'instagram',
+  },
+  {
+    slug: 'motul-brake-fluid-dot3',
+    category: 'pengereman',
+    brand: 'Motul',
+    name: { id: 'Brake Fluid DOT 3', en: 'Brake Fluid DOT 3' },
+    desc: {
+      id: 'Minyak rem DOT 3 — titik didih stabil untuk pengereman aman.',
+      en: 'DOT 3 brake fluid — stable boiling point for safe braking.',
+    },
+    priceIDR: null,
+    image: '/products/rem-motul-fluid.svg',
+    tags: ['DOT 3'],
+    source: 'instagram',
+  },
+  {
+    slug: 'proper-racing-swingarm-brace',
+    category: 'variasi',
+    brand: 'Proper Racing Line',
+    name: { id: 'Stabilizer Arm CNC', en: 'CNC Stabilizer Arm' },
+    desc: {
+      id: 'Arm/stabilizer CNC billet — kaku, presisi, tampil racing.',
+      en: 'Billet CNC stabilizer arm — rigid, precise, race-look.',
+    },
+    priceIDR: null,
+    image: '/products/variasi-proper-arm.svg',
+    tags: ['CNC', 'Billet'],
+    source: 'instagram',
+  },
+  {
+    slug: 'groza-variasi-bolt-set',
+    category: 'variasi',
+    brand: 'Groza',
+    name: { id: 'Baut Variasi Set (warna)', en: 'Colored Bolt Set' },
+    desc: {
+      id: 'Set baut variasi warna-warni untuk aksen detail motor.',
+      en: 'Colorful accent bolt set to detail your ride.',
+    },
+    priceIDR: null,
+    image: '/products/variasi-groza-bolts.svg',
+    tags: ['Aksesoris'],
+    source: 'instagram',
+  },
+]

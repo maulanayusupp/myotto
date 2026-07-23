@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+  <pattern id="ck2" width="40" height="40" patternUnits="userSpaceOnUse">
+    <rect width="40" height="40" fill="#0a0a0b"/>
+    <rect width="20" height="20" fill="#FFD100"/>
+    <rect x="20" y="20" width="20" height="20" fill="#FFD100"/>
+  </pattern>
+    <radialGradient id="og" cx="80%" cy="10%" r="90%">
+      <stop offset="0%" stop-color="#26262c"/>
+      <stop offset="100%" stop-color="#0a0a0b"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og)"/>
+  <circle cx="1000" cy="150" r="360" fill="#E4002B" opacity="0.14"/>
+  <rect width="1200" height="26" y="604" fill="url(#ck2)"/>
+  <g transform="translate(90 250)">
+    <path d="M0 0h60l-38 150H-2z" fill="#FFD100"/>
+    <path d="M68 0h60l-38 150H30z" fill="#ffffff"/>
+  </g>
+  <text x="250" y="300" font-family="Oswald, Arial Narrow, sans-serif" font-size="130" font-weight="700" fill="#ffffff" letter-spacing="2">MY<tspan fill="#FFD100">OTTO</tspan></text>
+  <text x="255" y="365" font-family="Inter, sans-serif" font-size="34" fill="#c7c7d0">Bengkel · Variasi · Performa Motor — Bandung</text>
+  <text x="255" y="430" font-family="JetBrains Mono, monospace" font-size="24" fill="#FFD100" letter-spacing="4">BOY'S WILL BE BOYS</text>
+</svg>

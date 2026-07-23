@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 // Small, composable utilities (kept minimal — most styling lives in components).
 .sr-only { @include visually-hidden; }
 

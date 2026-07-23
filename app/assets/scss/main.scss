@@ -1,0 +1,16 @@
+// =============================================================================
+// MYOTTO — global stylesheet entry point.
+// Design tokens/helpers (abstracts) are auto-injected into every component via
+// nuxt.config `additionalData`, so here we only pull in files that EMIT CSS:
+// base layer + shared component classes. Component-scoped styles live in each
+// .vue file. There is no inline CSS anywhere in the app.
+// =============================================================================
+@use 'abstracts' as *;
+
+@use 'base/reset';
+@use 'base/root';
+@use 'base/typography';
+@use 'base/layout';
+@use 'base/utilities';
+
+@use 'components/button';
