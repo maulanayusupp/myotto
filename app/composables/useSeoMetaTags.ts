@@ -7,7 +7,8 @@ interface SeoInput {
   image?: string
   imageWidth?: number
   imageHeight?: number
-  type?: 'website' | 'article' | 'product'
+  // og:type — limited to the values the head typings accept.
+  type?: 'website' | 'article'
 }
 
 /**

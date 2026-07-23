@@ -51,7 +51,6 @@ useSeoMetaTags({
   title: `${p.brand} ${name.value}`,
   description: desc.value,
   image: p.image,
-  type: 'product',
 })
 </script>
 
