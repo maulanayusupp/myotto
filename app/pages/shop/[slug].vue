@@ -50,7 +50,9 @@ function addToCart() {
 useSeoMetaTags({
   title: `${p.brand} ${name.value}`,
   description: desc.value,
-  image: p.image,
+  image: p.image, // 800×800 raster — renders in social previews
+  imageWidth: 800,
+  imageHeight: 800,
 })
 </script>
 

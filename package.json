@@ -20,6 +20,7 @@
     "@nuxtjs/i18n": "^9.5.3",
     "@vueuse/nuxt": "^12.5.0",
     "sass": "^1.83.4",
+    "sharp": "^0.35.3",
     "vue-tsc": "^2.2.0"
   },
   "packageManager": "pnpm@9.15.0"

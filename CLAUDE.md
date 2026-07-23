@@ -22,7 +22,11 @@ a full e-commerce experience.
    use `$tokens` / `var(--c-*)`.
 5. **SEO everywhere.** Every page calls `useSeoMetaTags(...)`. Home & contact
    also emit LocalBusiness JSON-LD via `useLocalBusinessJsonLd()`.
-6. **Favicon generated** (`public/favicon.svg`) + OG card (`public/og-image.svg`).
+6. **Favicon & social images are generated** by `scripts/gen-assets.mjs` (uses
+   sharp). Outputs: `favicon.svg`, `apple-touch-icon.png`, `favicon-32x32.png`,
+   `icon-512.png`, `og-image.jpg` (1200×630), and `products/*.jpg` + `gallery/*.jpg`.
+   **OG/social images MUST be raster (JPG/PNG)** — WhatsApp, Instagram, Facebook
+   and Twitter do NOT render SVG previews. Regenerate: `node scripts/gen-assets.mjs public`.
 7. **Multilingual by default.** Add UI strings to BOTH `i18n/locales/id.ts` and
    `en.ts` (same keys). Catalog CONTENT is bilingual in `app/data/**` via the
    `Bilingual { id, en }` type. **When you add or change any static text,

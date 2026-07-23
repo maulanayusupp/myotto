@@ -25,9 +25,9 @@ export const SITE = {
   fullName: 'MYOTTO Variasi Motor',
   legalName: 'Myotto Motorcycle Workshop',
   tagline: "Boy's Will Be Boys",
-  // Default deployment URL. Overridden in production via NUXT_PUBLIC_SITE_URL
-  // (maps to runtimeConfig.public.siteUrl).
-  url: 'https://myotto.vercel.app',
+  // Default deployment URL (no trailing slash — paths are appended directly).
+  // Overridden in production via NUXT_PUBLIC_SITE_URL (→ runtimeConfig.public.siteUrl).
+  url: 'https://myotto-pi.vercel.app',
   rating: { value: 4.7, count: 111, source: 'Google' },
   // Google Business Profile: "Open · Closes 8.00 pm".
   closingTime: '20:00',

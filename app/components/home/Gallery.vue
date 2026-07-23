@@ -7,12 +7,12 @@ const { t } = useI18n()
 
 // Themed placeholder tiles (see /public/gallery). Replace with real feed photos.
 const tiles = [
-  { src: '/gallery/g1.svg', alt: 'Workshop bay' },
-  { src: '/gallery/g2.svg', alt: 'CVT performance parts' },
-  { src: '/gallery/g3.svg', alt: 'Custom repaint' },
-  { src: '/gallery/g4.svg', alt: 'Tire fitting' },
-  { src: '/gallery/g5.svg', alt: 'Suspension upgrade' },
-  { src: '/gallery/g6.svg', alt: 'Detailing finish' },
+  { src: '/gallery/g1.jpg', alt: 'Workshop bay' },
+  { src: '/gallery/g2.jpg', alt: 'CVT performance parts' },
+  { src: '/gallery/g3.jpg', alt: 'Custom repaint' },
+  { src: '/gallery/g4.jpg', alt: 'Tire fitting' },
+  { src: '/gallery/g5.jpg', alt: 'Suspension upgrade' },
+  { src: '/gallery/g6.jpg', alt: 'Detailing finish' },
 ]
 </script>
 

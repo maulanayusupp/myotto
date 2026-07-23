@@ -22,7 +22,8 @@ export function useSeoMetaTags(input: SeoInput) {
   const base = (config.public.siteUrl as string) || SITE.url
 
   const usingDefaultImage = !input.image
-  const image = input.image ?? '/og-image.svg'
+  // Raster JPG (SVG previews don't render on WhatsApp/Instagram/Facebook).
+  const image = input.image ?? '/og-image.jpg'
   const absoluteImage = image.startsWith('http') ? image : `${base}${image}`
   const imgW = usingDefaultImage ? 1200 : input.imageWidth
   const imgH = usingDefaultImage ? 630 : input.imageHeight
@@ -41,6 +42,7 @@ export function useSeoMetaTags(input: SeoInput) {
     ogSiteName: SITE.name,
     ogImage: absoluteImage,
     ogImageSecureUrl: absoluteImage,
+    ogImageType: 'image/jpeg',
     ogImageWidth: imgW,
     ogImageHeight: imgH,
     ogImageAlt: input.title,

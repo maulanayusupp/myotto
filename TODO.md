@@ -4,13 +4,13 @@ Feature backlog & next steps. Keep updated as work progresses (project rule #12)
 
 ## Assets (before launch)
 
-- [ ] Replace themed SVG placeholders in `public/products/**` with **real product
-      photos** (MYOTTO's signature red-backdrop studio style).
+- [ ] Replace themed **raster placeholders** in `public/products/**` (JPG 800×800)
+      with **real product photos** (MYOTTO's red-backdrop studio style). Regenerate
+      via `node scripts/gen-assets.mjs public` after editing the source.
 - [ ] Replace `public/gallery/**` placeholders with real workshop/feed photos.
-- [ ] Export a **raster OG image** (`og-image.jpg` 1200×630) — some social
-      platforms don't render SVG OG cards well. Update `useSeoMetaTags` default.
-- [ ] Generate PNG/ICO favicon variants (`favicon.ico`, `apple-touch-icon.png`,
-      192/512 maskable) and re-add the `<link>`s + manifest icons.
+- [x] Raster OG image `og-image.jpg` (1200×630, 34KB) — renders on WhatsApp/IG/FB/Twitter.
+- [x] PNG favicon variants (`apple-touch-icon.png` 180, `favicon-32x32.png`,
+      `icon-512.png` maskable) + `<link>`s + manifest icons.
 - [ ] Provide a real logo file from MYOTTO if available (current wordmark is a
       faithful SVG recreation of the checkered-flag mark).
 
