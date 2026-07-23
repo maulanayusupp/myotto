@@ -4,12 +4,17 @@ import CTA from '~/components/home/CTA.vue'
 import { useCatalog } from '~/composables/useCatalog'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 const { allServices } = useCatalog()
 
 useSeoMetaTags({
   title: t('services.pageTitle'),
   description: t('services.pageDesc'),
 })
+useBreadcrumbJsonLd([
+  { name: t('nav.home'), path: localePath('/') },
+  { name: t('nav.services'), path: localePath('/services') },
+])
 </script>
 
 <template>

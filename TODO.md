@@ -38,7 +38,8 @@ Feature backlog & next steps. Keep updated as work progresses (project rule #12)
 
 - [ ] Booking flow for services (date/time slot) in addition to WA enquiry.
 - [ ] Reviews/testimonials section (pull verified Google reviews).
-- [ ] `@nuxtjs/sitemap` + structured breadcrumb JSON-LD.
+- [x] `@nuxtjs/sitemap` (i18n sitemap index + hreflang + image entries) &
+      breadcrumb JSON-LD on shop/product/services/about/contact.
 - [ ] Blog / tips section ("Boy's Will Be Boys" content) for SEO.
 - [ ] Analytics + consent banner (aligns with the Privacy policy).
 - [ ] Lighthouse/a11y pass; add `prefers-reduced-motion` audits for new motion.

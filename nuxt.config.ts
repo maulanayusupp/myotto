@@ -5,7 +5,20 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-01',
   devtools: { enabled: true },
 
-  modules: ['@nuxtjs/i18n', '@vueuse/nuxt'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/sitemap', '@vueuse/nuxt'],
+
+  // Canonical site identity for @nuxtjs/sitemap (and nuxt-site-config).
+  // Overridden in production via NUXT_PUBLIC_SITE_URL.
+  site: {
+    url: SITE.url,
+    name: SITE.name,
+  },
+
+  sitemap: {
+    // i18n integration adds localized <xhtml:link rel="alternate" hreflang>
+    // entries automatically. Exclude transactional pages with no SEO value.
+    exclude: ['/checkout', '/en/checkout'],
+  },
 
   // Centralized global stylesheet (no inline CSS anywhere in the app).
   css: ['~/assets/scss/main.scss'],

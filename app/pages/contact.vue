@@ -16,8 +16,13 @@ const socials = [
   { href: SOCIALS.shopee, icon: 'shop', label: 'Shopee' },
 ]
 
+const localePath = useLocalePath()
 useSeoMetaTags({ title: t('contact.title'), description: t('contact.pageDesc') })
 useLocalBusinessJsonLd()
+useBreadcrumbJsonLd([
+  { name: t('nav.home'), path: localePath('/') },
+  { name: t('nav.contact'), path: localePath('/contact') },
+])
 </script>
 
 <template>

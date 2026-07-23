@@ -21,7 +21,12 @@ const stats = [
   { value: '6+', label: 'trust.partsLabel' },
 ]
 
+const localePath = useLocalePath()
 useSeoMetaTags({ title: t('about.title'), description: t('about.pageDesc') })
+useBreadcrumbJsonLd([
+  { name: t('nav.home'), path: localePath('/') },
+  { name: t('nav.about'), path: localePath('/about') },
+])
 </script>
 
 <template>

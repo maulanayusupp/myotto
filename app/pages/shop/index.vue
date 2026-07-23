@@ -9,6 +9,7 @@ import type { LocaleCode } from '~/types/catalog'
 const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const localePath = useLocalePath()
 const { allProducts, allCategories } = useCatalog()
 const lc = computed(() => locale.value as LocaleCode)
 
@@ -28,6 +29,10 @@ useSeoMetaTags({
   title: t('shop.pageTitle'),
   description: t('shop.pageDesc'),
 })
+useBreadcrumbJsonLd([
+  { name: t('nav.home'), path: localePath('/') },
+  { name: t('nav.shop'), path: localePath('/shop') },
+])
 </script>
 
 <template>

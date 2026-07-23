@@ -54,6 +54,11 @@ useSeoMetaTags({
   imageWidth: 800,
   imageHeight: 800,
 })
+useBreadcrumbJsonLd([
+  { name: t('nav.home'), path: localePath('/') },
+  { name: t('nav.shop'), path: localePath('/shop') },
+  { name: `${p.brand} ${name.value}`, path: localePath(`/shop/${p.slug}`) },
+])
 </script>
 
 <template>

@@ -21,7 +21,10 @@ a full e-commerce experience.
    are auto-injected (see below), so never hardcode a hex value in a component —
    use `$tokens` / `var(--c-*)`.
 5. **SEO everywhere.** Every page calls `useSeoMetaTags(...)`. Home & contact
-   also emit LocalBusiness JSON-LD via `useLocalBusinessJsonLd()`.
+   emit LocalBusiness JSON-LD (`useLocalBusinessJsonLd()`); shop, product,
+   services, about & contact emit BreadcrumbList JSON-LD (`useBreadcrumbJsonLd()`).
+   `@nuxtjs/sitemap` generates an i18n sitemap index (`/sitemap_index.xml`, in
+   robots.txt) with hreflang + product image entries; `/checkout` is excluded.
 6. **Favicon & social images are generated** by `scripts/gen-assets.mjs` (uses
    sharp). Outputs: `favicon.svg`, `apple-touch-icon.png`, `favicon-32x32.png`,
    `icon-512.png`, `og-image.jpg` (1200×630), and `products/*.jpg` + `gallery/*.jpg`.
